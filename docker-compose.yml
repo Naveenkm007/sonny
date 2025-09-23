@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # Backend Flask API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - DATABASE_URL=sqlite:///srms.db
+      - CORS_ORIGINS=http://localhost:3000
+    volumes:
+      - ./backend:/app
+      - backend_data:/app/instance
+    depends_on:
+      - db
+    command: flask run --host=0.0.0.0 --port=5000
+
+  # Frontend React App
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:5000/api/v1
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    command: npm run dev
+
+  # Database (MySQL for production)
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: srms
+      MYSQL_USER: srms_user
+      MYSQL_PASSWORD: srms_password
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  # Database (SQLite for development - alternative)
+  # db:
+  #   image: alpine:latest
+  #   volumes:
+  #     - sqlite_data:/data
+  #   command: tail -f /dev/null
+
+volumes:
+  backend_data:
+  mysql_data:
+  # sqlite_data:
