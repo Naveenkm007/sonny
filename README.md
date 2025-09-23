@@ -526,5 +526,4 @@ For detailed API documentation, visit: [API Docs](https://your-domain.com/api/do
 
 **Made with ❤️ for educational institutions**
 
-*Last Updated: September 2025*#   s o n n y  
- 
+*Last Updated: September 2025*#
