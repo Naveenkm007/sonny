@@ -3,10 +3,9 @@ from flask_jwt_extended import (
     jwt_required, create_access_token, create_refresh_token,
     get_jwt_identity, get_jwt
 )
-from marshmallow import ValidationError
 from app import db
-from app.models.user import User, user_schema, users_schema
-from app.models.student import Student, student_schema
+from app.models.user import User
+from app.models.student import Student
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -67,8 +66,6 @@ def register():
             'tokens': tokens
         }), 201
         
-    except ValidationError as e:
-        return jsonify({'message': 'Validation error', 'errors': e.messages}), 400
     except Exception as e:
         db.session.rollback()
         return jsonify({'message': f'Registration failed: {str(e)}'}), 500

@@ -1,6 +1,5 @@
 from datetime import datetime, date
-from app import db, ma
-from marshmallow import fields
+from app import db
 
 class Student(db.Model):
     """Student model for storing student information"""
@@ -85,18 +84,3 @@ class Student(db.Model):
     def __repr__(self):
         return f'<Student {self.student_id}: {self.full_name}>'
 
-class StudentSchema(ma.SQLAlchemyAutoSchema):
-    """Student serialization schema"""
-    class Meta:
-        model = Student
-        load_instance = True
-        include_fk = True
-    
-    full_name = fields.Method("get_full_name")
-    
-    def get_full_name(self, obj):
-        return obj.full_name
-
-# Schema instances
-student_schema = StudentSchema()
-students_schema = StudentSchema(many=True)

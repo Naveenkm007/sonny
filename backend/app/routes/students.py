@@ -1,9 +1,8 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from marshmallow import ValidationError
 from app import db
 from app.models.user import User
-from app.models.student import Student, student_schema, students_schema
+from app.models.student import Student
 from app.utils.decorators import admin_required, admin_or_teacher_required
 
 students_bp = Blueprint('students', __name__)

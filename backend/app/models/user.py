@@ -1,5 +1,5 @@
 from datetime import datetime
-from app import db, ma
+from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, create_refresh_token
 
@@ -14,9 +14,6 @@ class User(db.Model):
     is_active = db.Column(db.Boolean, default=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    
-    # Relationships
-    student_profile = db.relationship('Student', backref='user', uselist=False, cascade='all, delete-orphan')
     
     def __init__(self, email, password, role='student'):
         self.email = email
@@ -53,13 +50,3 @@ class User(db.Model):
     def __repr__(self):
         return f'<User {self.email}>'
 
-class UserSchema(ma.SQLAlchemyAutoSchema):
-    """User serialization schema"""
-    class Meta:
-        model = User
-        load_instance = True
-        exclude = ('password_hash',)
-
-# Schema instances
-user_schema = UserSchema()
-users_schema = UserSchema(many=True)

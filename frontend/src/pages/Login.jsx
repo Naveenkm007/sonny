@@ -123,7 +123,7 @@ const Login = () => {
             <div className="text-xs text-blue-700 space-y-1">
               <p><strong>Admin:</strong> admin@srms.com / admin123</p>
               <p><strong>Teacher:</strong> teacher@srms.com / teacher123</p>
-              <p><strong>Student:</strong> student@srms.com / student123</p>
+              <p><strong>Student:</strong> john.doe@student.com / student123</p>
             </div>
           </div>
         </form>

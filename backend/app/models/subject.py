@@ -1,5 +1,5 @@
 from datetime import datetime
-from app import db, ma
+from app import db
 
 class Subject(db.Model):
     """Subject model for storing subject information"""
@@ -25,7 +25,9 @@ class Subject(db.Model):
     
     def get_statistics(self):
         """Get subject statistics"""
-        results = self.results.filter(Result.grade.isnot(None)).all()
+        # Import here to avoid circular imports
+        from app.models.result import Result
+        results = self.results.filter(Result.grade != None).all()
         
         if not results:
             return {
@@ -68,12 +70,3 @@ class Subject(db.Model):
     def __repr__(self):
         return f'<Subject {self.code}: {self.name}>'
 
-class SubjectSchema(ma.SQLAlchemyAutoSchema):
-    """Subject serialization schema"""
-    class Meta:
-        model = Subject
-        load_instance = True
-
-# Schema instances
-subject_schema = SubjectSchema()
-subjects_schema = SubjectSchema(many=True)

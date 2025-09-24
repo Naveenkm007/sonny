@@ -1,6 +1,5 @@
 from datetime import datetime
-from app import db, ma
-from marshmallow import fields
+from app import db
 
 class Result(db.Model):
     """Result model for storing student exam results"""
@@ -103,27 +102,3 @@ class Result(db.Model):
     def __repr__(self):
         return f'<Result {self.student.student_id}-{self.subject.code}: {self.grade}>'
 
-class ResultSchema(ma.SQLAlchemyAutoSchema):
-    """Result serialization schema"""
-    class Meta:
-        model = Result
-        load_instance = True
-        include_fk = True
-    
-    # Include related data
-    student = fields.Nested('StudentSchema', exclude=['results'])
-    subject = fields.Nested('SubjectSchema', exclude=['results'])
-    is_pass = fields.Method("get_is_pass")
-    grade_point = fields.Method("get_grade_point")
-    
-    def get_is_pass(self, obj):
-        return obj.is_pass()
-    
-    def get_grade_point(self, obj):
-        return obj.get_grade_point()
-
-# Schema instances
-result_schema = ResultSchema()
-results_schema = ResultSchema(many=True)
-result_simple_schema = ResultSchema(exclude=['student', 'subject'])
-results_simple_schema = ResultSchema(many=True, exclude=['student', 'subject'])
