@@ -51,25 +51,46 @@ echo 2. Preview deployment
 echo.
 set /p choice="Enter your choice (1 or 2): "
 
+echo Step 3: Deploying to Vercel...
+echo.
+echo Choose deployment type:
+echo 1. Production deployment
+echo 2. Preview deployment
+echo.
+set /p choice="Enter your choice (1 or 2): "
+
 if "%choice%"=="1" (
     echo Deploying to production...
     call vercel --prod
+    set deploy_exit_code=%errorlevel%
 ) else if "%choice%"=="2" (
     echo Creating preview deployment...
     call vercel
+    set deploy_exit_code=%errorlevel%
 ) else (
     echo Invalid choice. Deploying to production by default...
     call vercel --prod
+    set deploy_exit_code=%errorlevel%
 )
 
-if errorlevel 1 (
+if %deploy_exit_code% neq 0 (
     echo.
-    echo Deployment failed. Please check the errors above.
+    echo ❌ Deployment failed with exit code: %deploy_exit_code%
     echo.
-    echo Common solutions:
-    echo - Run: vercel login
-    echo - Check internet connection
-    echo - Verify project settings
+    echo 🔧 Common troubleshooting steps:
+    echo 1. Check internet connection
+    echo 2. Verify Vercel login: vercel login
+    echo 3. Check build logs for errors
+    echo 4. Ensure all files are committed to Git
+    echo 5. Try: vercel --debug --prod for detailed logs
+    echo.
+    echo 📚 For specific error codes, check:
+    echo https://vercel.com/docs/errors
+    echo.
+    echo 🆘 If deployment keeps failing:
+    echo - Clear cache: vercel --force
+    echo - Check project settings in Vercel dashboard
+    echo - Verify environment variables
 ) else (
     echo.
     echo ========================================
@@ -77,7 +98,21 @@ if errorlevel 1 (
     echo ========================================
     echo.
     echo Your SRMS application is now live!
-    echo Check the URLs provided above.
+    echo.
+    echo ✅ Features available:
+    echo - Modern UI with gradient themes
+    echo - Student management system
+    echo - Subject management
+    echo - Results management with grade calculation
+    echo - Dark/Light mode toggle
+    echo - Mobile responsive design
+    echo - CSV export functionality
+    echo.
+    echo 🔗 Next steps:
+    echo 1. Test all features on the live URL
+    echo 2. Set up custom domain (optional)
+    echo 3. Enable Vercel Analytics
+    echo 4. Monitor performance
     echo.
 )
 
