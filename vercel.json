@@ -1,6 +1,4 @@
 {
-  "version": 2,
-  "name": "srms-student-result-management",
   "builds": [
     {
       "src": "frontend/package.json",
@@ -12,25 +10,11 @@
   ],
   "routes": [
     {
-      "src": "/assets/(.*)",
-      "headers": {
-        "cache-control": "max-age=31536000, immutable"
-      }
+      "handle": "filesystem"
     },
     {
-      "src": "/(.*)",
+      "src": "/.*",
       "dest": "/index.html"
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
-  "functions": {
-    "frontend/dist/**/*": {
-      "includeFiles": "frontend/dist/**"
-    }
-  }
+  ]
 }
