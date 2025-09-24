@@ -1,0 +1,30 @@
+# Vercel ignore file - excludes files from deployment
+
+# Development files
+node_modules
+.env.local
+.env.development
+
+# Build artifacts
+.vite
+*.log
+
+# IDE files
+.vscode
+.idea
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+coverage/
+*.test.js
+*.spec.js
+
+# Documentation
+README.md
+docs/
+
+# Local scripts
+deploy.bat

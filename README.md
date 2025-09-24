@@ -1,11 +1,12 @@
-# 🎓 Student Result Management System (SRMS)
+# 🎓 SRMS - Student Result Management System
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
-[![Python](https://img.shields.io/badge/Python-3.8%2B-green.svg)](https://python.org/)
-[![Flask](https://img.shields.io/badge/Flask-2.3.0-red.svg)](https://flask.palletsprojects.com/)
+> **Modern, Professional Student Result Management System with Beautiful UI/UX**
 
-A comprehensive web-based Student Result Management System built with React.js frontend and Python Flask backend. This system automates the process of managing student records, marks entry, grade calculations, and result generation for educational institutions.
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/srms-application)
+[![React](https://img.shields.io/badge/React-18.2.0-blue)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-4.2.0-purple)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.2.7-cyan)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 ## 📋 Table of Contents
 
