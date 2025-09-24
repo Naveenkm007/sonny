@@ -26,8 +26,19 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: undefined
+      },
+      external: [],
+      onwarn(warning, warn) {
+        // Suppress "use client" directive warnings from react-hot-toast
+        if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
+          return
+        }
+        warn(warning)
       }
     }
   },
   base: './',
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production')
+  }
 })
