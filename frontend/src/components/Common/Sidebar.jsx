@@ -99,7 +99,7 @@ const Sidebar = () => {
   const navItems = getNavItems()
 
   return (
-    <div className="w-72 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border-r border-gray-200/50 dark:border-gray-700/50 min-h-screen flex flex-col shadow-soft transition-all duration-300">
+    <div className="w-72 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border-r border-gray-200/50 dark:border-gray-600/50 min-h-screen flex flex-col shadow-soft transition-all duration-300">
       {/* Header */}
       <div className="p-6 flex-shrink-0 border-b border-gray-200/50 dark:border-gray-700/50">
         <div className="flex items-center space-x-3">
@@ -112,10 +112,10 @@ const Sidebar = () => {
             </div>
           </div>
           <div>
-            <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
               SRMS
             </span>
-            <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Student Result Management</p>
+            <p className="text-xs text-gray-500 dark:text-gray-300 font-medium">Student Result Management</p>
           </div>
         </div>
       </div>
@@ -143,23 +143,25 @@ const Sidebar = () => {
                     <div className={clsx(
                       'flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-200',
                       isActive 
-                        ? 'bg-white/20 shadow-sm' 
-                        : `bg-gradient-to-br ${item.gradient} opacity-20 group-hover:opacity-30`
+                        ? 'bg-white/20 shadow-sm dark:bg-white/10' 
+                        : `bg-gradient-to-br ${item.gradient} opacity-40 group-hover:opacity-60 dark:opacity-60 dark:group-hover:opacity-80`
                     )}>
                       <Icon className={clsx(
                         'h-5 w-5 transition-all duration-200',
-                        isActive ? 'text-white' : 'text-gray-600 group-hover:text-gray-900'
+                        isActive 
+                          ? 'text-white' 
+                          : 'text-gray-700 group-hover:text-gray-900 dark:text-white dark:group-hover:text-white'
                       )} />
                     </div>
                     <span className={clsx(
                       'ml-3 font-medium transition-all duration-200',
-                      isActive ? 'text-white' : 'text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100'
+                      isActive ? 'text-white' : 'text-gray-700 dark:text-gray-100 group-hover:text-gray-900 dark:group-hover:text-white'
                     )}>
                       {item.name}
                     </span>
                     <ChevronRight className={clsx(
                       'ml-auto h-4 w-4 transition-all duration-200',
-                      isActive ? 'text-white/70 translate-x-1' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-400 group-hover:translate-x-0.5'
+                      isActive ? 'text-white/70 translate-x-1' : 'text-gray-400 dark:text-gray-300 group-hover:text-gray-600 dark:group-hover:text-white group-hover:translate-x-0.5'
                     )} />
                     
                     {/* Active indicator */}
@@ -175,8 +177,8 @@ const Sidebar = () => {
       </nav>
       
       {/* User Profile Section */}
-      <div className="flex-shrink-0 p-4 border-t border-gray-200/50 dark:border-gray-700/50">
-        <div className="bg-gradient-to-r from-gray-50 to-white dark:from-gray-700 dark:to-gray-800 rounded-2xl p-4 border border-gray-200/50 dark:border-gray-600/50 shadow-soft">
+      <div className="flex-shrink-0 p-4 border-t border-gray-200/50 dark:border-gray-600/50">
+        <div className="bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-750 rounded-2xl p-4 border border-gray-200/50 dark:border-gray-600/30 shadow-soft">
           <div className="flex items-center space-x-3">
             <div className="relative flex-shrink-0">
               <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center text-white text-lg font-bold shadow-colored">

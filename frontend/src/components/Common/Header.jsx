@@ -1,16 +1,52 @@
 import { useAuth } from '../../contexts/MockAuthContext'
 import { useTheme } from '../../contexts/ThemeContext'
 import { Bell, User, LogOut, Search, Menu, Globe, Sun, Moon, Monitor } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
   const { user, logout } = useAuth()
   const { theme, toggleTheme, isDark } = useTheme()
   const [showUserMenu, setShowUserMenu] = useState(false)
   const [showNotifications, setShowNotifications] = useState(false)
+  const navigate = useNavigate()
+  const userMenuRef = useRef(null)
+  const notificationsRef = useRef(null)
 
-  const handleLogout = () => {
-    logout()
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setShowUserMenu(false)
+      }
+      if (notificationsRef.current && !notificationsRef.current.contains(event.target)) {
+        setShowNotifications(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+      setShowUserMenu(false)
+      navigate('/login')
+    } catch (error) {
+      console.error('Logout error:', error)
+    }
+  }
+
+  const handleViewProfile = () => {
+    navigate('/profile')
+    setShowUserMenu(false)
+  }
+
+  const handleAppearance = () => {
+    toggleTheme()
     setShowUserMenu(false)
   }
 
@@ -78,7 +114,7 @@ const Header = () => {
           </button>
           
           {/* Notifications */}
-          <div className="relative">
+          <div className="relative" ref={notificationsRef}>
             <button 
               onClick={() => setShowNotifications(!showNotifications)}
               className="relative p-2.5 rounded-xl hover:bg-gray-100 transition-colors group"
@@ -126,7 +162,7 @@ const Header = () => {
           </div>
           
           {/* User Menu */}
-          <div className="relative">
+          <div className="relative" ref={userMenuRef}>
             <button
               onClick={() => setShowUserMenu(!showUserMenu)}
               className="flex items-center space-x-3 p-2 rounded-xl hover:bg-gray-100 transition-colors group"
@@ -155,14 +191,20 @@ const Header = () => {
                 </div>
                 
                 <div className="p-2">
-                  <button className="w-full flex items-center space-x-3 px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-100 rounded-xl transition-colors">
+                  <button 
+                    onClick={handleViewProfile}
+                    className="w-full flex items-center space-x-3 px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-100 rounded-xl transition-colors"
+                  >
                     <User className="h-4 w-4" />
                     <span>View Profile</span>
                   </button>
                   
-                  <button className="w-full flex items-center space-x-3 px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-100 rounded-xl transition-colors">
-                    <Sun className="h-4 w-4" />
-                    <span>Appearance</span>
+                  <button 
+                    onClick={handleAppearance}
+                    className="w-full flex items-center space-x-3 px-3 py-2.5 text-gray-700 hover:bg-gray-100 rounded-xl transition-colors"
+                  >
+                    {getThemeIcon()}
+                    <span>Toggle Theme</span>
                   </button>
                   
                   <hr className="my-2 border-gray-100" />

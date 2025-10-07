@@ -6,8 +6,33 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Enhanced CSS Custom Properties for Dynamic Theming */
+    --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    --gradient-secondary: linear-gradient(135deg, #64748b 0%, #475569 100%);
+    --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    --gradient-danger: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    --gradient-info: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    
+    /* Surface Gradients */
+    --gradient-surface-light: linear-gradient(145deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+    --gradient-surface-dark: linear-gradient(145deg, #1e293b 0%, #0f172a 50%, #020617 100%);
+    
+    /* Glass Morphism */
+    --glass-light: rgba(255, 255, 255, 0.25);
+    --glass-dark: rgba(15, 23, 42, 0.25);
+    --glass-backdrop: backdrop-filter: blur(16px) saturate(180%);
+    
+    /* Elevation Shadows */
+    --shadow-elevation-1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-elevation-2: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-elevation-3: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-elevation-4: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
   * {
-    @apply border-gray-200;
+    @apply border-neutral-200 dark:border-neutral-700;
   }
   
   html {
@@ -15,15 +40,21 @@
   }
   
   body {
-    @apply bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900 antialiased;
-    @apply dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-gray-100;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-gradient-to-br from-neutral-25 via-white to-neutral-50 text-neutral-900 antialiased;
+    @apply dark:bg-gradient-to-br dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-850 dark:text-neutral-50;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1, "ss02" 1;
     font-family: 'Inter', system-ui, sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-attachment: fixed;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
+    @apply font-semibold tracking-tight text-neutral-900 dark:text-neutral-50;
+    background: linear-gradient(135deg, #0c111d 0%, #344054 100%);
+    @apply dark:bg-gradient-to-r dark:from-neutral-50 dark:to-neutral-200;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   h1 {
@@ -40,29 +71,52 @@
 }
 
 @layer components {
-  /* Enhanced Button Components */
+  /* Enhanced Button Components with Advanced Color Grading */
   .btn {
-    @apply inline-flex items-center justify-center rounded-xl text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden;
+    @apply inline-flex items-center justify-center rounded-2xl text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
   }
   
   .btn-primary {
-    @apply btn bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-700 hover:to-primary-800 focus-visible:ring-primary-500 shadow-colored hover:shadow-lg transform hover:-translate-y-0.5 h-11 px-6;
+    @apply btn text-white focus-visible:ring-primary-400 shadow-primary hover:shadow-primary-lg transform hover:-translate-y-1 hover:scale-105 h-11 px-6;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #8b5cf6 100%);
   }
   
   .btn-secondary {
-    @apply btn bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 hover:border-gray-400 focus-visible:ring-gray-500 shadow-soft hover:shadow-medium h-11 px-6;
+    @apply btn bg-white text-neutral-700 border border-neutral-200 hover:bg-neutral-25 hover:border-neutral-300 focus-visible:ring-neutral-400 shadow-soft hover:shadow-medium transform hover:-translate-y-0.5 h-11 px-6;
+    @apply dark:bg-neutral-800 dark:text-neutral-200 dark:border-neutral-600 dark:hover:bg-neutral-700;
   }
   
   .btn-success {
-    @apply btn bg-gradient-to-r from-success-500 to-success-600 text-white hover:from-success-600 hover:to-success-700 focus-visible:ring-success-500 shadow-soft hover:shadow-medium transform hover:-translate-y-0.5 h-11 px-6;
+    @apply btn text-white focus-visible:ring-success-400 shadow-success hover:shadow-success transform hover:-translate-y-1 hover:scale-105 h-11 px-6;
+    background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+  }
+  
+  .btn-warning {
+    @apply btn text-white focus-visible:ring-warning-400 shadow-warning hover:shadow-warning transform hover:-translate-y-1 hover:scale-105 h-11 px-6;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
   }
   
   .btn-danger {
-    @apply btn bg-gradient-to-r from-danger-500 to-danger-600 text-white hover:from-danger-600 hover:to-danger-700 focus-visible:ring-danger-500 shadow-soft hover:shadow-medium transform hover:-translate-y-0.5 h-11 px-6;
+    @apply btn text-white focus-visible:ring-danger-400 shadow-danger hover:shadow-danger transform hover:-translate-y-1 hover:scale-105 h-11 px-6;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
+  }
+  
+  .btn-info {
+    @apply btn text-white focus-visible:ring-info-400 shadow-info hover:shadow-info transform hover:-translate-y-1 hover:scale-105 h-11 px-6;
+    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%);
   }
   
   .btn-ghost {
-    @apply btn text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus-visible:ring-gray-500 h-11 px-6;
+    @apply btn text-neutral-600 hover:text-neutral-900 hover:bg-gradient-to-r hover:from-neutral-50 hover:to-neutral-100 focus-visible:ring-neutral-400 transform hover:scale-105 h-11 px-6;
+    @apply dark:text-neutral-400 dark:hover:text-neutral-100 dark:hover:from-neutral-800 dark:hover:to-neutral-700;
+  }
+  
+  .btn-glass {
+    @apply btn backdrop-blur-md border border-white/20 text-neutral-900 hover:bg-white/30 focus-visible:ring-white/50 shadow-soft hover:shadow-medium h-11 px-6;
+    background: var(--glass-light);
+    @apply dark:border-neutral-500/20 dark:text-neutral-100 dark:hover:bg-neutral-800/30;
   }
   
   .btn-sm {
@@ -73,34 +127,62 @@
     @apply h-12 px-8 text-base;
   }
   
-  /* Enhanced Input Components */
+  /* Enhanced Input Components with Advanced Styling */
   .input {
-    @apply flex h-11 w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-1 focus-visible:border-primary-500 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200;
-    @apply dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:placeholder:text-gray-400 dark:focus-visible:border-primary-400;
+    @apply flex h-11 w-full rounded-2xl border border-neutral-200 bg-white px-4 py-2.5 text-sm placeholder:text-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-1 focus-visible:border-primary-500 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300;
+    @apply dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500 dark:focus-visible:border-primary-400;
+  }
+  
+  .input-glass {
+    @apply input backdrop-blur-md border-white/20 bg-white/50;
+    @apply dark:border-neutral-500/20 dark:bg-neutral-800/50;
   }
   
   .input-error {
-    @apply border-danger-300 focus-visible:ring-danger-500 focus-visible:border-danger-500;
+    @apply border-danger-300 focus-visible:ring-danger-400 focus-visible:border-danger-500 bg-danger-25;
+    @apply dark:bg-danger-950/20 dark:border-danger-600;
   }
   
   .input-success {
-    @apply border-success-300 focus-visible:ring-success-500 focus-visible:border-success-500;
+    @apply border-success-300 focus-visible:ring-success-400 focus-visible:border-success-500 bg-success-25;
+    @apply dark:bg-success-950/20 dark:border-success-600;
   }
   
-  /* Enhanced Card Components */
+  .input-warning {
+    @apply border-warning-300 focus-visible:ring-warning-400 focus-visible:border-warning-500 bg-warning-25;
+    @apply dark:bg-warning-950/20 dark:border-warning-600;
+  }
+  
+  /* Enhanced Card Components with Sophisticated Gradients */
   .card {
-    @apply rounded-2xl border border-gray-200 bg-white shadow-soft transition-all duration-200 hover:shadow-medium;
-    @apply dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700;
+    @apply rounded-2xl border border-neutral-200/60 shadow-soft transition-all duration-300 hover:shadow-medium backdrop-blur-sm;
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    @apply dark:border-neutral-700/50 dark:hover:border-neutral-600/50;
+    @apply dark:bg-gradient-to-br dark:from-neutral-800/90 dark:to-neutral-900/90;
   }
   
   .card-elevated {
-    @apply card shadow-medium hover:shadow-hard;
-    @apply dark:shadow-lg dark:hover:shadow-xl;
+    @apply card shadow-medium hover:shadow-hard transform hover:-translate-y-1;
+    background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 50%, #e2e8f0 100%);
+    @apply dark:bg-gradient-to-br dark:from-neutral-700 dark:via-neutral-800 dark:to-neutral-900;
   }
   
-  .card-gradient {
-    @apply card bg-gradient-to-br from-white to-gray-50;
-    @apply dark:from-gray-800 dark:to-gray-900;
+  .card-glass {
+    @apply card backdrop-blur-lg border-white/30 shadow-medium;
+    background: var(--glass-light);
+    @apply dark:border-neutral-500/30 dark:bg-neutral-800/30;
+  }
+  
+  .card-gradient-primary {
+    @apply card border-primary-200;
+    background: linear-gradient(145deg, #f4f6ff 0%, #ebeeff 50%, #d1d9ff 100%);
+    @apply dark:border-primary-800 dark:from-primary-950 dark:via-primary-900 dark:to-primary-800;
+  }
+  
+  .card-gradient-success {
+    @apply card border-success-200;
+    background: linear-gradient(145deg, #f7fef9 0%, #ecfdf5 50%, #d1fae5 100%);
+    @apply dark:border-success-800 dark:from-success-950 dark:via-success-900 dark:to-success-800;
   }
   
   /* Table Components */
@@ -177,12 +259,13 @@
   }
   
   .nav-item-active {
-    @apply bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-colored;
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg;
+    @apply dark:from-primary-600 dark:to-primary-700 dark:shadow-xl;
   }
   
   .nav-item-inactive {
     @apply text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50;
-    @apply dark:text-gray-400 dark:hover:text-gray-100 dark:hover:from-gray-700 dark:hover:to-gray-800;
+    @apply dark:text-gray-300 dark:hover:text-gray-100 dark:hover:from-gray-700/50 dark:hover:to-gray-600/50;
   }
   
   /* Modal Components */
@@ -192,7 +275,7 @@
   }
   
   .modal-content {
-    @apply bg-white rounded-2xl shadow-hard max-w-md w-full max-h-[90vh] overflow-hidden animate-scale-in;
+    @apply bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-hidden;
     @apply dark:bg-gray-800 dark:shadow-2xl;
   }
   
