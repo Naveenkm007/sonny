@@ -1,5 +1,6 @@
 from datetime import datetime
-from app import db
+from app import db, ma
+from marshmallow import fields
 
 class Subject(db.Model):
     """Subject model for storing subject information"""
@@ -62,11 +63,22 @@ class Subject(db.Model):
             'name': self.name,
             'code': self.code,
             'credits': self.credits,
-            'description': self.description,
             'is_active': self.is_active,
             'created_at': self.created_at.isoformat() if self.created_at else None
         }
     
     def __repr__(self):
-        return f'<Subject {self.code}: {self.name}>'
+        return f'<Subject {self.name} ({self.code})>'
 
+
+class SubjectSchema(ma.SQLAlchemyAutoSchema):
+    """Subject serialization schema"""
+    class Meta:
+        model = Subject
+        load_instance = True
+        include_fk = True
+
+
+# Schema instances
+subject_schema = SubjectSchema()
+subjects_schema = SubjectSchema(many=True)
